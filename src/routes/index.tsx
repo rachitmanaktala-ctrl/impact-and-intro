@@ -17,7 +17,7 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Rachit Manaktala — AI Student, Builder & Musician" },
-      { name: "description", content: "Portfolio of Rachit Manaktala: B.Sc. Artificial Intelligence student at Symbiosis, full-stack builder, startup-pitch winner and guitarist." },
+      { name: "description", content: "Portfolio of Rachit Manaktala: B.Sc. Artificial Intelligence student at Symbiosis, full-stack builder and guitarist." },
       { property: "og:title", content: "Rachit Manaktala — Portfolio" },
       { property: "og:description", content: "AI student, builder, fundraiser and musician from Gurgaon." },
       { property: "og:type", content: "profile" },
@@ -38,7 +38,6 @@ const experience = [
 ];
 
 const achievements = [
-  "First prize — IEEE Maharashtra startup-pitch competition, SIT Pune (team)",
   "Multiple interschool band competition wins as guitarist",
   "Awards in long jump and 400 m relay",
   "Smart India Hackathon · IIT Bombay Techfest · SIT Buildathon",
@@ -200,7 +199,7 @@ function Index() {
                 </Reveal>
               ))}
               <Reveal>
-                <div className="flex gap-6 py-6"><span className="text-sm text-secondary">05</span><p className="text-lg font-bold">Internship — Fortis Healthcare, Gurgaon (Jun 2025)</p></div>
+                <div className="flex gap-6 py-6"><span className="text-sm text-secondary">04</span><p className="text-lg font-bold">Internship — Fortis Healthcare, Gurgaon (Jun 2025)</p></div>
               </Reveal>
             </div>
           </div>
