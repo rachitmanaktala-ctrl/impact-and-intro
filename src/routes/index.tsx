@@ -17,9 +17,9 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Rachit Manaktala — AI Student, Builder & Musician" },
-      { name: "description", content: "Portfolio of Rachit Manaktala: B.Sc. Artificial Intelligence student at Symbiosis, full-stack builder and guitarist." },
+      { name: "description", content: "Portfolio of Rachit Manaktala: B.Sc. Artificial Intelligence student at Symbiosis, hackathon builder, fundraiser and guitarist." },
       { property: "og:title", content: "Rachit Manaktala — Portfolio" },
-      { property: "og:description", content: "AI student, builder, fundraiser and musician from Gurgaon." },
+      { property: "og:description", content: "AI student, hackathon builder, fundraiser and musician from Gurgaon." },
       { property: "og:type", content: "profile" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -37,10 +37,27 @@ const experience = [
   { year: "Now", role: "AI Literacy & Publications", org: "College AI Club", text: "Helping peers understand and write about AI." },
 ];
 
+const hackathons = [
+  {
+    name: "Smart India Hackathon",
+    place: "National · India",
+    text: "India's national student hackathon. Teams take on real problem statements from government, industry and academia and build a working solution against a hard deadline.",
+  },
+  {
+    name: "IIT Bombay Techfest",
+    place: "IIT Bombay · Mumbai",
+    text: "Asia's largest science and technology festival, run by IIT Bombay. Its innovation and tech tracks put student builders in front of mentors, judges and founders.",
+  },
+  {
+    name: "SIT Buildathon",
+    place: "Symbiosis Institute of Technology · Pune",
+    text: "A buildathon hosted at SIT Pune: form a team, turn an idea into a demoable build and present it to a jury.",
+  },
+];
+
 const achievements = [
   "Multiple interschool band competition wins as guitarist",
   "Awards in long jump and 400 m relay",
-  "Smart India Hackathon · IIT Bombay Techfest · SIT Buildathon",
 ];
 
 function Index() {
@@ -59,9 +76,9 @@ function Index() {
       <header className="fixed inset-x-0 top-0 z-50 mix-blend-difference">
         <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-6 text-sm">
           <a href="#top" className="font-black tracking-tight">RM.</a>
-          <div className="flex gap-6 text-secondary">
-            {["about", "work", "achievements", "contact"].map((s) => (
-              <a key={s} href={`#${s}`} onClick={() => haptic(6)} className="capitalize transition-colors hover:text-primary">{s}</a>
+          <div className="flex flex-wrap justify-end gap-x-4 gap-y-1 text-xs sm:gap-6 sm:text-sm">
+            {["about", "work", "hackathons", "achievements", "contact"].map((s) => (
+              <a key={s} href={`#${s}`} onClick={() => haptic(6)} className="capitalize text-secondary transition-colors hover:text-primary">{s}</a>
             ))}
           </div>
         </nav>
@@ -87,7 +104,7 @@ function Index() {
             <p className="max-w-md text-secondary">B.Sc. Artificial Intelligence student — technical development, entrepreneurship and community outreach. Gurgaon, India.</p>
             <div className="flex gap-3">
               <Magnetic><a className="btn-primary" href="#contact">Get in touch</a></Magnetic>
-              <Magnetic><a className="btn-secondary" href="#work">See work</a></Magnetic>
+              <Magnetic><a className="btn-secondary" href="#hackathons">See hackathons</a></Magnetic>
             </div>
           </motion.div>
         </div>
@@ -106,7 +123,7 @@ function Index() {
           <Reveal><p className="text-sm text-secondary">(01) About me</p></Reveal>
           <div className="space-y-16">
             <Reveal>
-              <p className="text-headline">First-year AI student drawn to programming, full-stack development, AI-assisted tools and entrepreneurship — with a background in healthcare exposure, community fundraising, startup pitches and live music.</p>
+              <p className="text-headline">First-year AI student drawn to programming, full-stack development, AI-assisted tools and entrepreneurship — with a background in hackathon builds, healthcare exposure, community fundraising and live music.</p>
             </Reveal>
             <Reveal>
               <h3 className="mb-6 text-sm text-secondary">Education</h3>
@@ -181,10 +198,42 @@ function Index() {
         </div>
       </section>
 
+      {/* Hackathons */}
+      <section id="hackathons" className="section-gap border-t px-6">
+        <div className="mx-auto max-w-6xl">
+          <Reveal className="mb-16 flex flex-wrap items-end justify-between gap-6">
+            <div>
+              <p className="mb-4 text-sm text-secondary">(03) Hackathons</p>
+              <h2 className="text-headline">Built under a clock</h2>
+            </div>
+            <p className="max-w-xs text-sm text-secondary">Three events, one format: form a team, build against a deadline, demo what you made.</p>
+          </Reveal>
+          <div className="grid gap-4 md:grid-cols-3">
+            {hackathons.map((h, i) => (
+              <Reveal key={h.name} delay={i * 0.1}>
+                <TiltCard className="h-full">
+                  <article data-hover className="flex h-full flex-col justify-between gap-10 rounded-md border bg-card p-6 transition-colors hover:bg-surface">
+                    <div>
+                      <div className="flex items-baseline justify-between">
+                        <span className="text-sm text-secondary">0{i + 1}</span>
+                        <span className="chip">Participated</span>
+                      </div>
+                      <p className="mt-8 text-xl font-black leading-tight">{h.name}</p>
+                      <p className="mt-2 text-sm text-secondary">{h.place}</p>
+                      <p className="mt-4 text-secondary">{h.text}</p>
+                    </div>
+                  </article>
+                </TiltCard>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Achievements */}
       <section id="achievements" className="section-gap border-t px-6">
         <div className="mx-auto max-w-6xl">
-          <Reveal><p className="mb-16 text-sm text-secondary">(03) Achievements & certificates</p></Reveal>
+          <Reveal><p className="mb-16 text-sm text-secondary">(04) Achievements & certificates</p></Reveal>
           <div className="grid items-center gap-16 md:grid-cols-2">
             <Parallax offset={50}>
               <button onClick={() => { haptic(12); setOpen(true); }} className="block w-full overflow-hidden rounded-md border" data-hover>
@@ -199,7 +248,7 @@ function Index() {
                 </Reveal>
               ))}
               <Reveal>
-                <div className="flex gap-6 py-6"><span className="text-sm text-secondary">04</span><p className="text-lg font-bold">Internship — Fortis Healthcare, Gurgaon (Jun 2025)</p></div>
+                <div className="flex gap-6 py-6"><span className="text-sm text-secondary">03</span><p className="text-lg font-bold">Internship — Fortis Healthcare, Gurgaon (Jun 2025)</p></div>
               </Reveal>
             </div>
           </div>
@@ -209,7 +258,7 @@ function Index() {
       {/* Contact */}
       <section id="contact" className="section-gap border-t px-6">
         <div className="mx-auto max-w-6xl text-center">
-          <Reveal><p className="mb-8 text-sm text-secondary">(04) Contact</p></Reveal>
+          <Reveal><p className="mb-8 text-sm text-secondary">(05) Contact</p></Reveal>
           <Reveal><a href={`mailto:${EMAIL}`} onClick={() => haptic([10, 40, 10])} className="text-display block break-all transition-colors hover:text-secondary">Let's talk.</a></Reveal>
           <Reveal delay={0.1}>
             <div className="mt-12 flex flex-wrap justify-center gap-3">
