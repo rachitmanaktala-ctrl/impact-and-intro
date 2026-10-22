@@ -248,23 +248,24 @@ function Index() {
       <section id="achievements" className="section-gap border-t px-6">
         <div className="mx-auto max-w-6xl">
           <Reveal><p className="mb-16 text-sm text-secondary">(04) Achievements & certificates</p></Reveal>
-          <div className="grid items-center gap-16 md:grid-cols-2">
-            <Parallax offset={50}>
-              <button onClick={() => { haptic(12); setOpen(true); }} className="block w-full overflow-hidden rounded-md border" data-hover>
-                <motion.img whileHover={{ scale: 1.04 }} transition={{ duration: 0.8 }} src={cert.url} alt="PsychCura volunteer certificate of completion of tenure" className="w-full" />
-              </button>
-              <p className="mt-4 text-sm text-secondary">Volunteering — Certificate of Completion of Tenure, PsychCura. Signed by founders Paakhi Gupta & Aarshi Sharma.</p>
-            </Parallax>
-            <div className="divide-y border-y">
-              {achievements.map((a, i) => (
-                <Reveal key={a} delay={i * 0.08}>
-                  <div className="flex gap-6 py-6"><span className="text-sm text-secondary">0{i + 1}</span><p className="text-lg font-bold">{a}</p></div>
-                </Reveal>
-              ))}
-              <Reveal>
-                <div className="flex gap-6 py-6"><span className="text-sm text-secondary">03</span><p className="text-lg font-bold">Internship — Fortis Healthcare, Gurgaon (Jun 2025)</p></div>
+          <div className="grid gap-10 md:grid-cols-2">
+            {certs.map((c, i) => (
+              <Reveal key={c.src} delay={i * 0.1}>
+                <Parallax offset={i === 0 ? 30 : 10}>
+                  <button onClick={() => { haptic(12); setOpen(i); }} className="block w-full overflow-hidden rounded-md border bg-card p-4 transition-colors hover:bg-surface" data-hover>
+                    <motion.img whileHover={{ scale: 1.04 }} transition={{ duration: 0.8 }} src={c.src} alt={c.alt} className="w-full rounded-sm" />
+                  </button>
+                  <p className="mt-4 text-sm text-secondary">{c.label}</p>
+                </Parallax>
               </Reveal>
-            </div>
+            ))}
+          </div>
+          <div className="mt-24 divide-y border-y">
+            {achievements.map((a, i) => (
+              <Reveal key={a} delay={i * 0.08}>
+                <div className="flex gap-6 py-6"><span className="text-sm text-secondary">0{i + 1}</span><p className="text-lg font-bold">{a}</p></div>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>
@@ -288,9 +289,9 @@ function Index() {
         <div className="mx-auto flex max-w-6xl justify-between"><span>© 2026 Rachit Manaktala</span><span>Gurgaon, India</span></div>
       </footer>
 
-      {open && (
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} onClick={() => setOpen(false)} className="fixed inset-0 z-[80] flex items-center justify-center bg-background/95 p-6">
-          <motion.img initial={{ scale: 0.9 }} animate={{ scale: 1 }} src={cert.url} alt="PsychCura certificate enlarged" className="max-h-full max-w-full rounded-md" />
+      {open !== null && (
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} onClick={() => setOpen(null)} className="fixed inset-0 z-[80] flex items-center justify-center bg-background/95 p-6">
+          <motion.img initial={{ scale: 0.9 }} animate={{ scale: 1 }} src={certs[open].src} alt={certs[open].alt} className="max-h-full max-w-full rounded-md" />
         </motion.div>
       )}
     </div>
