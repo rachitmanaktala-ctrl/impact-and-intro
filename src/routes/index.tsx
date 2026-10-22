@@ -292,6 +292,7 @@ function Index() {
 
       {viewed && (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} onClick={() => setOpen(null)} className="fixed inset-0 z-[80] flex items-center justify-center bg-background/95 p-6">
+          <button onClick={() => setOpen(null)} aria-label="Close certificate" className="chip absolute right-6 top-6 cursor-pointer">Close ✕</button>
           <motion.img initial={{ scale: 0.9 }} animate={{ scale: 1 }} src={viewed.src} alt={viewed.alt} className="max-h-full max-w-full rounded-md" />
         </motion.div>
       )}
