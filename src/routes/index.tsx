@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform } from "motion/react";
 import { useState } from "react";
 import photo from "@/assets/rachit.jpg.asset.json";
 import cert from "@/assets/cert.jpg.asset.json";
+import fortisCert from "@/assets/fortis-cert.jpg.asset.json";
 import { getGithub, GITHUB_USER } from "@/lib/github.functions";
 import { Cursor, Magnetic, Parallax, Reveal, ScrollProgress, SmoothScroll, SplitText, TiltCard, haptic } from "@/components/fx";
 
@@ -60,12 +61,25 @@ const achievements = [
   "Awards in long jump and 400 m relay",
 ];
 
+const certs = [
+  {
+    src: cert.url,
+    alt: "PsychCura volunteer certificate of completion of tenure",
+    label: "Volunteering — Certificate of Completion of Tenure, PsychCura. Signed by founders Paakhi Gupta & Aarshi Sharma.",
+  },
+  {
+    src: fortisCert.url,
+    alt: "Fortis internship certificate — Offline Summer Internship in Psychology",
+    label: "Internship — Offline Summer Internship in Psychology, Fortis School Mental Health Program, June 2025. Signed by Dr. Samir Parikh.",
+  },
+];
+
 function Index() {
   const { data: gh } = useSuspenseQuery(githubQuery);
   const { scrollY } = useScroll();
   const heroScale = useTransform(scrollY, [0, 700], [1, 1.15]);
   const heroOpacity = useTransform(scrollY, [0, 600], [1, 0.2]);
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState<number | null>(null);
 
   return (
     <div className="grain relative cursor-auto overflow-x-clip md:cursor-none">
