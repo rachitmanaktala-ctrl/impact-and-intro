@@ -80,6 +80,7 @@ function Index() {
   const heroScale = useTransform(scrollY, [0, 700], [1, 1.15]);
   const heroOpacity = useTransform(scrollY, [0, 600], [1, 0.2]);
   const [open, setOpen] = useState<number | null>(null);
+  const viewed = open === null ? null : certs[open] ?? null;
 
   return (
     <div className="grain relative cursor-auto overflow-x-clip md:cursor-none">
@@ -289,9 +290,9 @@ function Index() {
         <div className="mx-auto flex max-w-6xl justify-between"><span>© 2026 Rachit Manaktala</span><span>Gurgaon, India</span></div>
       </footer>
 
-      {open !== null && (
+      {viewed && (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} onClick={() => setOpen(null)} className="fixed inset-0 z-[80] flex items-center justify-center bg-background/95 p-6">
-          <motion.img initial={{ scale: 0.9 }} animate={{ scale: 1 }} src={certs[open].src} alt={certs[open].alt} className="max-h-full max-w-full rounded-md" />
+          <motion.img initial={{ scale: 0.9 }} animate={{ scale: 1 }} src={viewed.src} alt={viewed.alt} className="max-h-full max-w-full rounded-md" />
         </motion.div>
       )}
     </div>
