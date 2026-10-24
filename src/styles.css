@@ -121,7 +121,7 @@
 @utility animate-marquee { animation: marquee 40s linear infinite; }
 
 /* Photo strip: 5 photos, ~2s per photograph (one full set = 10s) */
-@utility animate-photo-marquee { animation: marquee 10s linear infinite; }
+@utility animate-photo-marquee { animation: marquee 6s linear infinite; }
 @utility photo-marquee {
   mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
   &:hover .animate-photo-marquee { animation-play-state: paused; }
