@@ -5,6 +5,10 @@ import { useState } from "react";
 import photo from "@/assets/rachit.jpg.asset.json";
 import cert from "@/assets/cert.jpg.asset.json";
 import fortisCert from "@/assets/fortis-cert.jpg.asset.json";
+import tuffman from "@/assets/tuffman-medal.jpg.asset.json";
+import foodDrive1 from "@/assets/food-drive-1.jpg.asset.json";
+import foodDrive2 from "@/assets/food-drive-2.jpg.asset.json";
+import fundraiserGroup from "@/assets/fundraiser-group.jpg.asset.json";
 import { getGithub, GITHUB_USER } from "@/lib/github.functions";
 import { Cursor, Magnetic, Parallax, Reveal, ScrollProgress, SmoothScroll, SplitText, TiltCard, haptic } from "@/components/fx";
 
