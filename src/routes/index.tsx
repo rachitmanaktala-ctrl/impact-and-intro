@@ -143,6 +143,18 @@ function Index() {
         </div>
       </div>
 
+      {/* Photo strip — auto-scrolls sideways, one photo every ~2s */}
+      <section aria-label="Moments — marathon, food drive and fundraiser photos" className="photo-marquee py-14">
+        <div className="animate-photo-marquee flex w-max gap-5">
+          {[...gallery, ...gallery].map((g, i) => (
+            <figure key={i} className="relative h-[280px] w-max overflow-hidden rounded-md border md:h-[360px]">
+              <img src={g.src} alt={g.alt} loading="lazy" className="h-full w-auto object-cover grayscale-[20%] transition-[filter] duration-700 hover:grayscale-0" />
+              <figcaption className="absolute bottom-3 left-3 chip bg-background/80 backdrop-blur-sm">{g.label}</figcaption>
+            </figure>
+          ))}
+        </div>
+      </section>
+
       {/* About */}
       <section id="about" className="section-gap px-6">
         <div className="mx-auto grid max-w-6xl gap-16 md:grid-cols-[1fr_1.4fr]">
