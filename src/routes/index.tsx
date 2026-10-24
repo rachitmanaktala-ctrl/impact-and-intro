@@ -5,6 +5,10 @@ import { useState } from "react";
 import photo from "@/assets/rachit.jpg.asset.json";
 import cert from "@/assets/cert.jpg.asset.json";
 import fortisCert from "@/assets/fortis-cert.jpg.asset.json";
+import tuffman from "@/assets/tuffman-medal.jpg.asset.json";
+import foodDrive1 from "@/assets/food-drive-1.jpg.asset.json";
+import foodDrive2 from "@/assets/food-drive-2.jpg.asset.json";
+import fundraiserGroup from "@/assets/fundraiser-group.jpg.asset.json";
 import { getGithub, GITHUB_USER } from "@/lib/github.functions";
 import { Cursor, Magnetic, Parallax, Reveal, ScrollProgress, SmoothScroll, SplitText, TiltCard, haptic } from "@/components/fx";
 
@@ -59,6 +63,13 @@ const hackathons = [
 const achievements = [
   "Multiple interschool band competition wins as guitarist",
   "Awards in long jump and 400 m relay",
+];
+
+const gallery = [
+  { src: tuffman.url, alt: "Tuffman Marathon finisher's medal", label: "Tuffman Marathon" },
+  { src: foodDrive1.url, alt: "Volunteers distributing food to families on a street", label: "Psych Cura food drive" },
+  { src: foodDrive2.url, alt: "Handing out meal bags during the food drive", label: "Psych Cura food drive" },
+  { src: fundraiserGroup.url, alt: "Group photo at the Gurgaon fundraising event", label: "Gurgaon fundraiser" },
 ];
 
 const certs = [
@@ -131,6 +142,18 @@ function Index() {
           {[...skills, ...skills].map((s, i) => <span key={i}>{s} <span className="text-border">✦</span></span>)}
         </div>
       </div>
+
+      {/* Photo strip — auto-scrolls sideways, one photo every ~2s */}
+      <section aria-label="Moments — marathon, food drive and fundraiser photos" className="photo-marquee py-14">
+        <div className="animate-photo-marquee flex w-max gap-5">
+          {[...gallery, ...gallery].map((g, i) => (
+            <figure key={i} className="relative h-[280px] w-max overflow-hidden rounded-md border md:h-[360px]">
+              <img src={g.src} alt={g.alt} loading="lazy" className="h-full w-auto object-cover grayscale-[20%] transition-[filter] duration-700 hover:grayscale-0" />
+              <figcaption className="absolute bottom-3 left-3 chip bg-background/80 backdrop-blur-sm">{g.label}</figcaption>
+            </figure>
+          ))}
+        </div>
+      </section>
 
       {/* About */}
       <section id="about" className="section-gap px-6">
