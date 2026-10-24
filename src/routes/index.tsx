@@ -65,6 +65,13 @@ const achievements = [
   "Awards in long jump and 400 m relay",
 ];
 
+const gallery = [
+  { src: tuffman.url, alt: "Tuffman Marathon finisher's medal", label: "Tuffman Marathon" },
+  { src: foodDrive1.url, alt: "Volunteers distributing food to families on a street", label: "Psych Cura food drive" },
+  { src: foodDrive2.url, alt: "Handing out meal bags during the food drive", label: "Psych Cura food drive" },
+  { src: fundraiserGroup.url, alt: "Group photo at the Gurgaon fundraising event", label: "Gurgaon fundraiser" },
+];
+
 const certs = [
   {
     src: cert.url,
