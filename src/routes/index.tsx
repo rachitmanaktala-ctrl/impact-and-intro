@@ -5,7 +5,6 @@ import { useState } from "react";
 import photo from "@/assets/rachit.jpg.asset.json";
 import cert from "@/assets/cert.jpg.asset.json";
 import fortisCert from "@/assets/fortis-cert.jpg.asset.json";
-import foodDrive1 from "@/assets/food-drive-1.jpg.asset.json";
 import foodDrive2 from "@/assets/food-drive-2.jpg.asset.json";
 import fundraiserGroup from "@/assets/fundraiser-group.jpg.asset.json";
 import tuffmanMedal from "@/assets/tuffman-medal.jpg.asset.json";
@@ -67,7 +66,6 @@ const achievements = [
 
 const gallery = [
   { src: tuffmanMedal.url, alt: "Tuffman Marathon finisher's medal pinned to a purple jersey", label: "Tuffman Marathon" },
-  { src: foodDrive1.url, alt: "Volunteers distributing food to families on a street", label: "Psych Cura food drive" },
   { src: foodDrive2.url, alt: "Handing out meal bags during the food drive", label: "Psych Cura food drive" },
   { src: fundraiserGroup.url, alt: "Group photo at the Gurgaon fundraising event", label: "Gurgaon fundraiser" },
 ];
