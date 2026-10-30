@@ -5,11 +5,16 @@ import { useState } from "react";
 import photo from "@/assets/rachit.jpg.asset.json";
 import cert from "@/assets/cert.jpg.asset.json";
 import fortisCert from "@/assets/fortis-cert.jpg.asset.json";
+import longJump from "@/assets/long-jump.jpg.asset.json";
+import relay from "@/assets/relay.jpg.asset.json";
+import battleOfBands from "@/assets/battle-of-bands.jpg.asset.json";
+import schoolChoir from "@/assets/school-choir.jpg.asset.json";
+import sustainathon from "@/assets/sustainathon-medals.jpg.asset.json";
 import foodDrive2 from "@/assets/food-drive-2.jpg.asset.json";
 import fundraiserGroup from "@/assets/fundraiser-group.jpg.asset.json";
 import tuffmanMedal from "@/assets/tuffman-medal.jpg.asset.json";
 import { getGithub, GITHUB_USER } from "@/lib/github.functions";
-import { Cursor, Magnetic, Parallax, Reveal, ScrollProgress, SmoothScroll, SplitText, TiltCard, haptic } from "@/components/fx";
+import { Cursor, Magnetic, Reveal, ScrollProgress, SmoothScroll, SplitText, TiltCard, haptic } from "@/components/fx";
 
 const LINKEDIN = "https://www.linkedin.com/in/rachit-manaktala-569a45424";
 const GITHUB = `https://github.com/${GITHUB_USER}`;
@@ -61,7 +66,10 @@ const hackathons = [
 
 const achievements = [
   "Multiple interschool band competition wins as guitarist",
-  "Awards in long jump and 400 m relay",
+  "3rd position — Long Jump, Annual Sports Meet 2024-25",
+  "3rd position — 100 × 4 m Relay, Annual Sports Meet 2024-25",
+  "2nd position — Ensemble–School Choir, Odyssey/Satya School, Aug 2023",
+  "Three bronze medals — XAV Sustainathon 2024",
 ];
 
 const gallery = [
