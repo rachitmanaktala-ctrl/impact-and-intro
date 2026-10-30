@@ -5,11 +5,16 @@ import { useState } from "react";
 import photo from "@/assets/rachit.jpg.asset.json";
 import cert from "@/assets/cert.jpg.asset.json";
 import fortisCert from "@/assets/fortis-cert.jpg.asset.json";
+import longJump from "@/assets/long-jump.jpg.asset.json";
+import relay from "@/assets/relay.jpg.asset.json";
+import battleOfBands from "@/assets/battle-of-bands.jpg.asset.json";
+import schoolChoir from "@/assets/school-choir.jpg.asset.json";
+import sustainathon from "@/assets/sustainathon-medals.jpg.asset.json";
 import foodDrive2 from "@/assets/food-drive-2.jpg.asset.json";
 import fundraiserGroup from "@/assets/fundraiser-group.jpg.asset.json";
 import tuffmanMedal from "@/assets/tuffman-medal.jpg.asset.json";
 import { getGithub, GITHUB_USER } from "@/lib/github.functions";
-import { Cursor, Magnetic, Parallax, Reveal, ScrollProgress, SmoothScroll, SplitText, TiltCard, haptic } from "@/components/fx";
+import { Cursor, Magnetic, Reveal, ScrollProgress, SmoothScroll, SplitText, TiltCard, haptic } from "@/components/fx";
 
 const LINKEDIN = "https://www.linkedin.com/in/rachit-manaktala-569a45424";
 const GITHUB = `https://github.com/${GITHUB_USER}`;
@@ -61,7 +66,10 @@ const hackathons = [
 
 const achievements = [
   "Multiple interschool band competition wins as guitarist",
-  "Awards in long jump and 400 m relay",
+  "3rd position — Long Jump, Annual Sports Meet 2024-25",
+  "3rd position — 100 × 4 m Relay, Annual Sports Meet 2024-25",
+  "2nd position — Ensemble–School Choir, Odyssey/Satya School, Aug 2023",
+  "Three bronze medals — XAV Sustainathon 2024",
 ];
 
 const gallery = [
@@ -80,6 +88,31 @@ const certs = [
     src: fortisCert.url,
     alt: "Fortis internship certificate — Offline Summer Internship in Psychology",
     label: "Internship — Offline Summer Internship in Psychology, Fortis School Mental Health Program, June 2025. Signed by Dr. Samir Parikh.",
+  },
+  {
+    src: longJump.url,
+    alt: "Certificate for 3rd position in Long Jump Boys at the St. Xavier's Annual Sports Meet 2024-25",
+    label: "3rd position — Long Jump Boys, Annual Sports Meet 2024-25, 13 Dec 2024.",
+  },
+  {
+    src: relay.url,
+    alt: "Certificate for 3rd position in 100 by 4 metres Relay Boys at the St. Xavier's Annual Sports Meet 2024-25",
+    label: "3rd position — 100 × 4 m Relay Boys, Annual Sports Meet 2024-25, 13 Dec 2024.",
+  },
+  {
+    src: battleOfBands.url,
+    alt: "Certificate of Appreciation, Battle of Bands, DPS R.N. Extension Inter School Music Fest 2023",
+    label: "Battle of Bands — Certificate of Appreciation, DPS R.N. Extension Inter School Music Fest 2023.",
+  },
+  {
+    src: schoolChoir.url,
+    alt: "Certificate of Excellence, 2nd position in Ensemble–The School Choir, Odyssey and Satya School, August 2023",
+    label: "2nd position — Ensemble–The School Choir, Certificate of Excellence, Odyssey / Satya School, 18 Aug 2023.",
+  },
+  {
+    src: sustainathon.url,
+    alt: "Three bronze medals from XAV Sustainathon 2024 with brown ribbons on a wooden table",
+    label: "Three bronze medals — XAV Sustainathon 2024, “Compete Conserve Thrive”.",
   },
 ];
 
@@ -270,15 +303,17 @@ function Index() {
       <section id="achievements" className="section-gap border-t px-6">
         <div className="mx-auto max-w-6xl">
           <Reveal><p className="mb-16 text-sm text-secondary">(04) Achievements & certificates</p></Reveal>
-          <div className="grid gap-10 md:grid-cols-2">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {certs.map((c, i) => (
-              <Reveal key={c.src} delay={i * 0.1}>
-                <Parallax offset={i === 0 ? 30 : 10}>
-                  <button onClick={() => { haptic(12); setOpen(i); }} className="block w-full overflow-hidden rounded-md border bg-card p-4 transition-colors hover:bg-surface" data-hover>
-                    <motion.img whileHover={{ scale: 1.04 }} transition={{ duration: 0.8 }} src={c.src} alt={c.alt} className="w-full rounded-sm" />
-                  </button>
-                  <p className="mt-4 text-sm text-secondary">{c.label}</p>
-                </Parallax>
+              <Reveal key={c.src} delay={(i % 3) * 0.08} className="h-full">
+                <button onClick={() => { haptic(12); setOpen(i); }} data-hover
+                  className="flex h-full w-full flex-col rounded-md border bg-card p-4 text-left transition-colors hover:bg-surface">
+                  <span className="flex h-56 items-center justify-center overflow-hidden md:h-64">
+                    <motion.img whileHover={{ scale: 1.04 }} transition={{ duration: 0.8 }} src={c.src} alt={c.alt}
+                      className="max-h-full max-w-full rounded-sm object-contain" />
+                  </span>
+                  <span className="mt-4 block text-sm text-secondary">{c.label}</span>
+                </button>
               </Reveal>
             ))}
           </div>
