@@ -32,7 +32,7 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const skills = ["Python", "Java", "SQL", "MySQL", "Full-stack", "VS Code", "GitHub", "Google Colab", "PowerShell", "Prompt engineering", "LLMs", "Claude", "Codex", "Antigravity", "Google AI Studio", "Perplexity", "Lovable", "Midjourney", "Startup pitching", "Fundraising", "Shopify", "Ad automation"];
+const skills = ["Python", "Java", "SQL", "Full-stack", "Prompt engineering", "Antigravity", "Google AI Studio", "Startup pitching", "Fundraising", "Ad automation"];
 
 const experience = [
   { year: "Sep 2025", role: "Fundraising & Food Donation Organizer", org: "Psych Cura · Gurgaon", text: "Organised a fundraiser with live guitar, painting and Polaroid photography, promoted through Instagram posts and ads. Funds bought meals for people in need — 50–60 people involved." },
